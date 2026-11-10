@@ -104,6 +104,15 @@ L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=
   maxZoom: 19,
 }).addTo(map);
 
+L.circleMarker([38.632694, -90.188484], {
+  pane: "markerPane",
+  radius: 7,
+  color: "#fff",
+  weight: 2,
+  fillColor: "#0b2e59",
+  fillOpacity: 1,
+}).bindTooltip("Rams' Former Stadium").addTo(map);
+
 desktopToggle.addEventListener("click", () => {
   desktopOpen = !desktopOpen;
   updatePanel();
