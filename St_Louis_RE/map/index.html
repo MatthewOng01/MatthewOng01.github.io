@@ -12,6 +12,11 @@
 #search input { min-width: 0; width: 100%; }
 #search button { background: var(--color-accent); color: white; cursor: pointer; }
 #search button:disabled { opacity: .55; cursor: default; }
+:root { --footer-height: 52px; }
+#footer .footer-content { width: 100%; text-align: center; line-height: 1.35; }
+#footer .footer-links { display: flex; justify-content: center; gap: .5rem; }
+.stadium-key { display: flex; align-items: center; gap: .5rem; font-size: 13px; }
+.stadium-dot { width: 14px; height: 14px; flex: 0 0 14px; border: 2px solid white; border-radius: 50%; background: var(--color-accent); box-shadow: 0 0 0 1px var(--color-accent); }
 #legend { list-style: none; font-size: 13px; }
 #legend li { display: flex; align-items: center; gap: .5rem; margin: .35rem 0; }
 #parcel, #status, #methodology { font-size: 13px; line-height: 1.45; }
@@ -24,31 +29,6 @@
     #mobile-toggle { left: auto; right: 16px; transform: none; }
     #mobile-toggle:active { transform: scale(.97); }
 }
-
-        #footer {
-             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 30px;
-            background: #1a1a2e;
-            color: #aaa;
-            font-size: 11px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1100;
-            letter-spacing: 0.3px;
-        }
-
-        @media (min-width: 768px) {
-            #footer { font-size: 14px; }
-        }
-
-        #footer a {
-        color: inherit;
-        text-decoration: underline;
-    }
 </style>
 <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script defer src="map.js"></script>
@@ -72,35 +52,33 @@
 <h3>Selected parcel</h3>
 <div id="parcel" aria-live="polite"><p>Select a parcel on the map to see its assessment and sales history.</p></div>
 </section>
+<div class="sidebar-section stadium-key"><span class="stadium-dot" aria-hidden="true"></span>Rams' Former Stadium</div>
 <section class="sidebar-section">
 <h3>Change in average assessment</h3>
 <div id="legend-bar"><ul id="legend"></ul></div>
 </section>
 <details id="methodology">
 <summary>How the values were calculated</summary>
-    <p>Pre covers 2010–2015 and post covers 2016–2019. Each assessment is the arithmetic mean of the available annual total assessed values in that period. Percent change divides the difference between period averages by the pre-period average. A missing or zero pre-period average leaves percent change unavailable.</p>
-    <p>Sale prices show the median of the priced transaction rows in each period, with the number of observations. Dollar amounts are nominal. Parcel shapes use the latest available assessment geometry, or the latest sale geometry for parcels with only sales data. Distance uses the straight-line distance from the centroid of a parcel to the stadium. Changes shown here are descriptive.</p>
+<p>The data covers 2010-2019. Pre covers 2010–2015 and post covers 2016–2019, after the Rams' announced their departure in 2016. Percent change divides the difference between period averages by the pre-period average.</p>
+<p>Dollar amounts are nominal. Distance is measured in straight-line miles from the center of a parcel to the coordinates of the stadium.</p>
 </details>
-    <details id="methodology">
+<details id="methodology">
 <summary>Data Sources</summary>
-<p>All data was accessed through the City Assessor's Office. The data covers 2010-2019 for tax parcels within St. Louis. </p>
-
+<p>All <a href="https://www.stlouis-mo.gov/data/datasets/dataset.cfm?id=82">data</a> came from St. Louis City Assessor's Office. Tax Assessments and Sales Transactions were matched to geographic tax parcels via a city-provided cross-walk.</p>
 </details>
 </aside>
 <button id="sidebar-toggle" type="button" aria-controls="sidebar" aria-label="Toggle parcel panel">◀</button>
 <button id="mobile-toggle" type="button" aria-controls="sidebar">Parcel explorer</button>
 </main>
-
 <footer id="footer">
-  <div class="container footer-content">
-    <span>Matthew Ong &middot; Real Estate &amp; Economic Analysis</span>
-    <div class="footer-links">
-      <a href="https://linkedin.com/in/matthewong01" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <span>&middot;</span>
-      <a href="https://github.com/matthewong01" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </div>
-  </div>
+<div class="container footer-content">
+<span>Matthew Ong · Real Estate &amp; Economic Analysis</span>
+<div class="footer-links">
+<a href="https://linkedin.com/in/matthewong01">LinkedIn</a>
+<span aria-hidden="true">·</span>
+<a href="https://github.com/matthewong01">GitHub</a>
+</div>
+</div>
 </footer>
-    
 </body>
 </html>
