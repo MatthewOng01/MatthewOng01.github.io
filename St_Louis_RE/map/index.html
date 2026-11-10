@@ -24,6 +24,31 @@
     #mobile-toggle { left: auto; right: 16px; transform: none; }
     #mobile-toggle:active { transform: scale(.97); }
 }
+
+        #footer {
+             position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: #1a1a2e;
+            color: #aaa;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1100;
+            letter-spacing: 0.3px;
+        }
+
+        @media (min-width: 768px) {
+            #footer { font-size: 14px; }
+        }
+
+        #footer a {
+        color: inherit;
+        text-decoration: underline;
+    }
 </style>
 <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script defer src="map.js"></script>
