@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>St. Louis Parcel Atlas · Matthew Ong</title>
+<link rel="stylesheet" href="css/leaflet.css">
+<link rel="stylesheet" href="css/map-base.css">
+<style>
+#search { display: flex; gap: .4rem; margin: .5rem 0; }
+#search input, #search button { font: inherit; min-height: 38px; border: 1px solid var(--sidebar-border); border-radius: 6px; padding: .45rem; }
+#search input { min-width: 0; width: 100%; }
+#search button { background: var(--color-accent); color: white; cursor: pointer; }
+#search button:disabled { opacity: .55; cursor: default; }
+#legend { list-style: none; font-size: 13px; }
+#legend li { display: flex; align-items: center; gap: .5rem; margin: .35rem 0; }
+#parcel, #status, #methodology { font-size: 13px; line-height: 1.45; }
+#parcel .popup-row { margin-bottom: .6rem; }
+#methodology summary { cursor: pointer; font-weight: 600; }
+#methodology p { margin-top: .55rem; }
+@media (max-width: 767px) {
+    #sidebar { height: min(60%, calc(100% - 140px)); }
+    #mobile-toggle.sheet-open { bottom: calc(min(60%, 100% - 140px) + var(--footer-height) + 16px); }
+    #mobile-toggle { left: auto; right: 16px; transform: none; }
+    #mobile-toggle:active { transform: scale(.97); }
+}
+</style>
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script defer src="map.js"></script>
+</head>
+<body>
+<header id="header">
+<h1>St. Louis Parcel Atlas</h1>
+<span class="desktop-subtitle">Assessments and sales within three miles of the Rams’ former stadium · 2010–2019</span>
+<span class="mobile-subtitle">2010–2019 · 3 mi</span>
+</header>
+<main>
+<div id="map" aria-label="Interactive map of St. Louis parcels"></div>
+<div id="sheet-overlay" aria-hidden="true"></div>
+<aside id="sidebar" aria-label="Parcel explorer">
+<section class="sidebar-section">
+<h3><label for="handle">Find a parcel by HANDLE</label></h3>
+<form id="search"><input id="handle" placeholder="Enter the full HANDLE"><button disabled>Find</button></form>
+<p id="status" role="status">Loading parcels…</p>
+</section>
+<section class="sidebar-section">
+<h3>Selected parcel</h3>
+<div id="parcel" aria-live="polite"><p>Select a parcel on the map to see its assessment and sales history.</p></div>
+</section>
+<section class="sidebar-section">
+<h3>Change in average assessment</h3>
+<div id="legend-bar"><ul id="legend"></ul></div>
+</section>
+<details id="methodology">
+<summary>How the values were calculated</summary>
+<p>Pre covers 2010–2015 and post covers 2016–2019. Each assessment is the arithmetic mean of the available annual total assessed values in that period. Percent change divides the difference between period averages by the pre-period average. A missing or zero pre-period average leaves percent change unavailable.</p>
+<p>Sale prices show the median of the priced transaction rows in each period, with the number of observations. Dollar amounts are nominal. Parcel shapes use the latest available assessment geometry, or the latest sale geometry for parcels with only sales data. Distance uses the thesis export’s stadium distance. Changes shown here are descriptive.</p>
+</details>
+</aside>
+<button id="sidebar-toggle" type="button" aria-controls="sidebar" aria-label="Toggle parcel panel">◀</button>
+<button id="mobile-toggle" type="button" aria-controls="sidebar">Parcel explorer</button>
+</main>
+<footer id="footer"><a href="https://MatthewOng01.github.io/">Matthew Ong</a>&nbsp;·&nbsp;St. Louis thesis data</footer>
+</body>
+</html>
