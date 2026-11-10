@@ -1,0 +1,614 @@
+/*
+ * map-base.css
+ * Matthew Ong — Shared map page stylesheet
+ *
+ * Covers: reset, header, footer, map container, sidebar (desktop + mobile
+ * bottom sheet), sidebar toggle buttons, sidebar section components
+ * (radio options, checkbox options, legend bar, swatches, data note, popups).
+ *
+ * What goes here:      layout, typography, colors, spacing, transitions
+ * What stays per-map:  legend gradient color, any one-off overrides
+ *
+ * Usage in each map's <head>:
+ *   <link rel="stylesheet" href="css/leaflet.css">
+ *   <link rel="stylesheet" href="css/map-base.css">
+ *   <style>/* project overrides only *\/</style>
+ *
+ * To retheme the whole portfolio, edit the variables in :root below.
+ * ─────────────────────────────────────────────────────────────────
+ */
+
+
+/* ═════════════════════════════════════════════════
+   DESIGN TOKENS
+   Change colors, font, or sizing here — nowhere else
+═════════════════════════════════════════════════ */
+:root {
+    /* Brand palette */
+    --color-brand:        #1a1a2e;   /* header / footer background        */
+    --color-accent:       #0B2E59;   /* radio/checkbox accent, deep map    */
+    --color-text-light:   #ffffff;   /* header text                        */
+    --color-text-muted:   #aaaaaa;   /* header subtitle, footer text       */
+
+    /* Sidebar */
+    --sidebar-width:      340px;
+    --sidebar-bg:         #ffffff;
+    --sidebar-border:     #e0e0e0;
+    --sidebar-padding:    16px;
+
+    /* Section headings */
+    --section-label-color: #888888;
+    --section-divider:     #eeeeee;
+
+    /* Interactive rows (radio / checkbox) */
+    --row-hover-bg:       #f5f5f5;
+    --row-label-color:    #333333;
+    --row-min-height-desktop: 36px;
+    --row-min-height-mobile:  44px;
+
+    /* Legend bar */
+    --legend-bg:          #fafafa;
+    --legend-border:      #eeeeee;
+    --legend-label-color: #555555;
+    --legend-tick-color:  #666666;
+
+    /* Popups */
+    --popup-title-color:  #1a1a2e;
+    --popup-key-color:    #777777;
+    --popup-val-color:    #333333;
+    --popup-divider:      #eeeeee;
+
+    /* Data note */
+    --note-color:         #999999;
+
+    /* Chrome */
+    --header-height-mobile:  48px;
+    --header-height-desktop: 56px;
+    --footer-height:         30px;
+
+    /* Typography */
+    --font-base: 'Helvetica Neue', Arial, sans-serif;
+}
+
+
+/* ═════════════════════════════════════════════════
+   RESET
+═════════════════════════════════════════════════ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-base);
+    background: #f4f4f4;
+}
+
+
+/* ═════════════════════════════════════════════════
+   HEADER
+═════════════════════════════════════════════════ */
+#header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--header-height-mobile);
+    background: var(--color-brand);
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    z-index: 1100;
+    gap: 8px;
+    overflow: hidden;
+}
+
+#header h1 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Mobile/desktop title swap */
+.mobile-title,
+.mobile-subtitle { display: inline; }
+
+.desktop-title,
+.desktop-subtitle { display: none; }
+
+.mobile-subtitle,
+.desktop-subtitle {
+    font-size: 10px;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    #header {
+        height: var(--header-height-desktop);
+        padding: 0 20px;
+        gap: 12px;
+    }
+    #header h1 {
+        font-size: 16px;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
+
+    .mobile-title,
+    .mobile-subtitle { display: none; }
+
+    .desktop-title,
+    .desktop-subtitle { display: inline; }
+}
+
+
+/* ═════════════════════════════════════════════════
+   FOOTER
+═════════════════════════════════════════════════ */
+#footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: var(--footer-height);
+    background: var(--color-brand);
+    color: var(--color-text-muted);
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    letter-spacing: 0.3px;
+}
+
+#footer a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    #footer { font-size: 14px; }
+}
+
+/* ═════════════════════════════════════════════════
+   Search function
+═════════════════════════════════════════════════ */
+.zip-search-input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        .zip-search-input:focus {
+            outline: none;
+            border-color: #4575A5;
+        }
+        #zip-search-msg {
+            font-size: 12px;
+            margin-top: 6px;
+            color: #b03030;
+            min-height: 14px;
+        }
+
+/* ═════════════════════════════════════════════════
+   MAP CONTAINER
+═════════════════════════════════════════════════ */
+#map {
+    position: fixed;
+    top: var(--header-height-mobile);
+    left: 0; right: 0;
+    bottom: var(--footer-height);
+    z-index: 1;
+    transition: left 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    #map {
+        top: var(--header-height-desktop);
+        left: var(--sidebar-width);
+    }
+    #map.sidebar-hidden { left: 0; }
+}
+
+/* Mobile: map always fills full width */
+@media (max-width: 767px) {
+    #map {
+        left: 0 !important;
+    }
+}
+
+
+/* ═════════════════════════════════════════════════
+   SIDEBAR — DESKTOP
+═════════════════════════════════════════════════ */
+#sidebar {
+    position: fixed;
+    top: var(--header-height-mobile);
+    left: 0;
+    width: var(--sidebar-width);
+    bottom: var(--footer-height);
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-border);
+    overflow-y: auto;
+    z-index: 1000;
+    padding: var(--sidebar-padding);
+    transition: transform 0.3s ease;
+}
+
+#sidebar.sidebar-hidden {
+    transform: translateX(-100%);
+}
+
+@media (min-width: 768px) {
+    #sidebar { top: var(--header-height-desktop); }
+}
+
+
+/* ═════════════════════════════════════════════════
+   SIDEBAR — MOBILE BOTTOM SHEET
+═════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+    #sidebar {
+        top: auto;
+        left: 0; right: 0;
+        width: 100%;
+        height: 60%;
+        bottom: var(--footer-height);
+        border-right: none;
+        border-top: 1px solid #ddd;
+        border-radius: 16px 16px 0 0;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+    }
+
+    #sidebar.sidebar-hidden {
+        transform: translateY(100%);
+    }
+
+    /* Drag handle */
+    #sidebar::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 4px;
+        background: #ddd;
+        border-radius: 2px;
+        margin: 0 auto 14px;
+    }
+}
+
+
+/* ═════════════════════════════════════════════════
+   DESKTOP SIDEBAR TOGGLE BUTTON
+═════════════════════════════════════════════════ */
+#sidebar-toggle {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    #sidebar-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 50%;
+        left: var(--sidebar-width);
+        transform: translateY(-50%);
+        width: 22px;
+        height: 48px;
+        background: var(--sidebar-bg);
+        border: 1px solid var(--sidebar-border);
+        border-left: none;
+        border-radius: 0 8px 8px 0;
+        cursor: pointer;
+        z-index: 1001;
+        box-shadow: 2px 0 6px rgba(0,0,0,0.10);
+        transition: left 0.3s ease, background 0.15s;
+        color: #555;
+        font-size: 11px;
+    }
+
+    #sidebar-toggle:hover {
+        background: var(--row-hover-bg);
+        color: var(--color-brand);
+    }
+
+    #sidebar-toggle.sidebar-hidden {
+        left: 0;
+        border-left: 1px solid var(--sidebar-border);
+        border-radius: 0 8px 8px 0;
+        box-shadow: 2px 0 6px rgba(0,0,0,0.10);
+    }
+}
+
+
+/* ═════════════════════════════════════════════════
+   MOBILE FLOATING TOGGLE BUTTON
+═════════════════════════════════════════════════ */
+#mobile-toggle {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    #mobile-toggle {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        position: fixed;
+        bottom: calc(var(--footer-height) + 16px);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1002;
+        background: var(--color-brand);
+        color: var(--color-text-light);
+        border: none;
+        border-radius: 24px;
+        padding: 11px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+        white-space: nowrap;
+        transition: background 0.15s, transform 0.15s, bottom 0.3s ease;
+        letter-spacing: 0.2px;
+    }
+
+    #mobile-toggle:active {
+        transform: translateX(-50%) scale(0.97);
+    }
+
+    #mobile-toggle.sheet-open {
+        bottom: calc(60% + var(--footer-height) + 16px);
+    }
+
+    #mobile-toggle svg {
+        flex-shrink: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    #mobile-toggle { display: none; }
+}
+
+
+/* ═════════════════════════════════════════════════
+   MOBILE SHEET OVERLAY
+═════════════════════════════════════════════════ */
+#sheet-overlay {
+    display: none;
+    position: fixed;
+    top: var(--header-height-mobile);
+    left: 0; right: 0;
+    bottom: var(--footer-height);
+    background: rgba(0,0,0,0.25);
+    z-index: 999;
+}
+
+@media (max-width: 767px) {
+    #sheet-overlay.active { display: block; }
+}
+
+
+/* ═════════════════════════════════════════════════
+   SIDEBAR SECTIONS
+═════════════════════════════════════════════════ */
+.sidebar-section {
+    margin-bottom: 20px;
+}
+
+.sidebar-section h3 {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--section-label-color);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--section-divider);
+}
+
+
+/* ═════════════════════════════════════════════════
+   RADIO OPTIONS
+═════════════════════════════════════════════════ */
+.radio-option {
+    display: flex;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-bottom: 2px;
+    min-height: var(--row-min-height-desktop);
+}
+
+@media (max-width: 767px) {
+    .radio-option {
+        min-height: var(--row-min-height-mobile);
+        padding: 10px;
+    }
+}
+
+.radio-option:hover { background: var(--row-hover-bg); }
+
+.radio-option input[type="radio"] {
+    margin-right: 10px;
+    accent-color: var(--color-accent);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.radio-option label {
+    font-size: 13px;
+    color: var(--row-label-color);
+    cursor: pointer;
+}
+
+
+/* ═════════════════════════════════════════════════
+   CHECKBOX OPTIONS
+═════════════════════════════════════════════════ */
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-bottom: 2px;
+    min-height: var(--row-min-height-desktop);
+}
+
+@media (max-width: 767px) {
+    .checkbox-option {
+        min-height: var(--row-min-height-mobile);
+        padding: 10px;
+    }
+}
+
+.checkbox-option:hover { background: var(--row-hover-bg); }
+
+.checkbox-option input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: var(--color-accent);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.checkbox-option label {
+    font-size: 13px;
+    color: var(--row-label-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* ═════════════════════════════════════════════════
+   LEGEND SWATCHES
+═════════════════════════════════════════════════ */
+.swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.swatch-line {
+    display: inline-block;
+    width: 18px;
+    height: 3px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.swatch-circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid #555;
+    flex-shrink: 0;
+}
+
+
+/* ═════════════════════════════════════════════════
+   CHOROPLETH LEGEND BAR
+═════════════════════════════════════════════════ */
+#legend-bar {
+    margin-top: 8px;
+    padding: 10px;
+    background: var(--legend-bg);
+    border: 1px solid var(--legend-border);
+    border-radius: 6px;
+}
+
+/*
+ * .gradient is the color ramp strip.
+ * Set background in each map's <style> block, e.g.:
+ *   #legend-bar .gradient {
+ *       background: linear-gradient(to right, #E8EBEE, #0B2E59);
+ *   }
+ */
+#legend-bar .gradient {
+    height: 10px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    /* fallback — override per map */
+    background: linear-gradient(to right, #cccccc, #333333);
+}
+
+#legend-bar .labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--legend-tick-color);
+}
+
+#legend-label {
+    font-size: 11px;
+    color: var(--legend-label-color);
+    margin-bottom: 6px;
+    font-style: italic;
+}
+
+
+/* ═════════════════════════════════════════════════
+   DATA NOTE
+═════════════════════════════════════════════════ */
+#data-note {
+    font-size: 11px;
+    color: var(--note-color);
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+
+/* ═════════════════════════════════════════════════
+   LEAFLET POPUPS
+═════════════════════════════════════════════════ */
+.leaflet-popup-content {
+    font-size: 13px;
+    min-width: 200px;
+}
+
+@media (max-width: 767px) {
+    .leaflet-popup-content {
+        font-size: 14px;
+        min-width: 240px;
+    }
+    .leaflet-popup-content-wrapper {
+        border-radius: 10px !important;
+    }
+}
+
+.popup-title {
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: var(--popup-title-color);
+    border-bottom: 1px solid var(--popup-divider);
+    padding-bottom: 6px;
+}
+
+.popup-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    gap: 12px;
+}
+
+.popup-key { color: var(--popup-key-color); }
+.popup-val { font-weight: 600; color: var(--popup-val-color); text-align: right; }
