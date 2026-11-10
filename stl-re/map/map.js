@@ -105,7 +105,7 @@ L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=
 }).addTo(map);
 
 L.circleMarker([38.632694, -90.188484], {
-  pane: "markerPane",
+  renderer: L.svg({ pane: "markerPane" }),
   radius: 7,
   color: "#fff",
   weight: 2,
