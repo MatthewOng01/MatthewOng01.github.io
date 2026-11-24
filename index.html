@@ -1,9 +1,12 @@
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Matthew Ong · Matthew Ong</title>
+  <title>Matthew Ong · Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css">
+  <script src="project-filter.js" defer></script>
 </head>
 
 <body>
@@ -13,27 +16,24 @@
     <p class="eyebrow">Portfolio</p>
     <h1>Matthew Ong</h1>
    <p class="bio">
-Economics graduate student at Texas A&M University with a focus on real estate development, housing markets, and spatial analytics. I use econometrics, GIS, and financial analysis to study how location, market fundamentals, and investment decisions shape real estate outcomes.
-</p>
+I use econometrics, GIS, and financial analysis to study housing markets and real estate investment. My projects cover home prices, food access, and regional labor markets.
+  </p>
 <p class="bio">
-My work combines statistical modeling, data visualization, and spatial analysis to turn complex datasets into actionable insights. Recent projects have examined housing price appreciation, food access, labor market disparities, and regional economic growth using R, SAS, Python, SQL, and GIS.
-</p>
-<p class="bio">
-I'm particularly interested in multifamily, mixed-use, and land development projects where market forces, public policy, and urban growth intersect.
-    </p>
+I’m especially interested in real estate capital markets and market studies for multifamily, mixed-use, and land development.
+  </p>
     <div class="skills">
       <span class="skill-tag">Excel</span>
-      <span class="skill-tag">R</span>
       <span class="skill-tag">Python</span>
-      <span class="skill-tag">SAS</span>
+      <span class="skill-tag">GIS</span>
       <span class="skill-tag">SQL</span>
       <span class="skill-tag">Tableau</span>
-      <span class="skill-tag">GIS</span>
+      <span class="skill-tag">R</span>
+      <span class="skill-tag">SAS</span>
     </div>
     <div class="contact-links">
   <a href="https://github.com/MatthewOng01" target="_blank">GitHub</a>
   <a href="https://www.linkedin.com/in/matthewong01" target="_blank">LinkedIn</a>
-  <a href="mailto:mong01@tamu.edu">Email</a>
+  <a href="mailto:matthew.ong78@gmail.com">Email</a>
 </div>
   </div>
 </header>
@@ -42,134 +42,91 @@ I'm particularly interested in multifamily, mixed-use, and land development proj
 
   <section>
     <h2>Projects</h2>
+    <div class="project-filters" role="group" aria-label="Filter projects by tag" hidden>
+      <button type="button" data-tag="market-research" aria-pressed="false">Market Research</button>
+      <button type="button" data-tag="economic-theory" aria-pressed="false">Economic Theory</button>
+      <button type="button" data-tag="real-estate" aria-pressed="false">Real Estate</button>
+      <button type="button" data-tag="spatial-analysis" aria-pressed="false">Spatial Analysis</button>
+      <button type="button" data-tag="labor-economics" aria-pressed="false">Labor Economics</button>
+      <button type="button" data-tag="financial-economics" aria-pressed="false">Financial Economics</button>
+      <button type="button" data-tag="macroeconomics" aria-pressed="false">Macroeconomics</button>
+      <button class="clear-filter" type="button">Clear</button>
+    </div>
+    <p class="project-count" role="status"></p>
     <div class="projects">
-
- <!-- KC House Price Appreciation -->
-<a class="project-card" href="https://MatthewOng01.github.io/kc-housing-appreciation/index.html">
-  <div class="project-header">
-    <div class="project-title">Kansas City House Price Appreciation</div>
-    <div class="project-arrow">→</div>
-  </div>
-  <div class="project-tags">
-    <span class="project-tag">Spatial Econometrics</span>
-    <span class="project-tag">Real Estate Trends</span>
-    <span class="project-tag">Housing Markets</span>
-    <span class="project-tag">Data Visualization</span>
-  </div>
-  <p class="project-desc">
-Analyzed housing market convergence across 198 Kansas City ZIP codes using Zillow Home Value Index (ZHVI) data, GIS, and spatial econometric models. Found that lower-priced neighborhoods consistently appreciated faster than higher-priced neighborhoods, and that this relationship remained significant after accounting for geographic clustering. The project combines interactive mapping, data visualization, and econometric analysis to examine long-run neighborhood change.  </p>
-  <div class="project-links">
-    <span>Read case study →</span>
-    <a class="repo-link" href="https://MatthewOng01.github.io/kc-housing-appreciation/dashboard.html" target="_blank">View Dashboard ↗</a>
-    <a class="repo-link" href="https://MatthewOng01.github.io/kc-housing-appreciation/map/index.html" target="_blank">View Interactive map ↗</a>
-  </div>
-</a>
-
-      
-<!-- Food Access -->
-<a class="project-card" href="https://MatthewOng01.github.io/kc-food-access/index.html">
-  <div class="project-header">
-    <div class="project-title">Food Access & Neighborhood Conditions in Jackson County, MO</div>
-    <div class="project-arrow">→</div>
-  </div>
-  <div class="project-tags">
-    <span class="project-tag">Spatial Economics</span>
-    <span class="project-tag">Applied Economics</span>
-    <span class="project-tag">RStudio</span>
-    <span class="project-tag">QGIS</span>
-  </div>
-  <p class="project-desc">
-Mapped food access, income, and housing conditions across Jackson County census tracts using RStudio and QGIS. Overlays for SNAP stores, KCATA transit, and buffer rings reveal how low-access areas align with historically disinvested corridors east of Troost.  <div class="project-links">
-    <span>Read case study →</span>
-    <a class="repo-link" href="https://MatthewOng01.github.io/kc-food-access/map" target="_blank">View Interactive Map ↗</a>
-  </div>
-</a>
-
-      
-<!-- MSA Unemployment -->
-      <a class="project-card" href="https://MatthewOng01.github.io/msa-unemployment/index.html">
+      <article class="project-card" data-project="kc-housing-appreciation" data-tags="market-research real-estate spatial-analysis">
         <div class="project-header">
-          <div class="project-title">GDP Growth and Racial Unemployment Gaps Across U.S. Metro Areas</div>
-          <div class="project-arrow">→</div>
+          <h3 class="project-title"><a href="kc-housing-appreciation/index.html">Kansas City House Price Appreciation</a></h3>
+          <span class="project-date"><time datetime="2026-08">June 2026</time></span>
         </div>
-        <div class="project-tags">
-          <span class="project-tag">Labor Economics</span>
-          <span class="project-tag">Applied Economics</span>
-          <span class="project-tag">SAS</span>
-        </div>
-        <p class="project-desc">
-Analyzed economic growth and labor market equity across U.S. metropolitan areas from 2010–2023. Developed a performance metric that rewarded stable GDP growth while penalizing volatility, then compared racial unemployment gaps between high- and low-performing metros. Found that stronger economic performance did not consistently translate into more equitable employment outcomes, highlighting the limits of growth-focused development strategies.
-        </p>
+        <div class="project-tags"><span class="project-tag">Spatial Econometrics</span> <span class="project-tag">Real Estate Trends</span> <span class="project-tag">Housing Markets</span> <span class="project-tag">Data Visualization</span></div>
+        <p class="project-desc">Analyzed housing market convergence across 198 Kansas City ZIP codes using Zillow Home Value Index (ZHVI) data, GIS, and spatial econometric models. Found that lower-priced neighborhoods consistently appreciated faster than higher-priced neighborhoods, and that this relationship remained significant after accounting for geographic clustering. The project combines interactive mapping, data visualization, and econometric analysis to examine long-run neighborhood change.</p>
         <div class="project-links">
-          <span>Read case study →</span>
-          <a class="repo-link" href="https://github.com/MatthewOng01/msa_unemployment" target="_blank">View repository ↗</a>
+          <a href="kc-housing-appreciation/index.html">Read case study →</a>
+          <a class="repo-link" href="kc-housing-appreciation/dashboard.html" target="_blank" rel="noopener noreferrer">View Dashboard ↗</a>
+          <a class="repo-link" href="kc-housing-appreciation/map/index.html" target="_blank" rel="noopener noreferrer">View Interactive map ↗</a>
         </div>
-      </a>
-
-
-
-      <!-- Project 4: CAPM Apple vs S&P 500 -->
-<a class="project-card" href="https://MatthewOng01.github.io/apple-capm/index.html">
-  <div class="project-header">
-    <div class="project-title">CAPM: Estimating Apple's Market Sensitivity Against the S&P 500</div>
-    <div class="project-arrow">→</div>
-  </div>
-  <div class="project-tags">
-    <span class="project-tag">Financial Economics</span>
-    <span class="project-tag">CAPM</span>
-    <span class="project-tag">APPLE</span>
-    <span class="project-tag">R</span>
-  </div>
-  <p class="project-desc">
-Evaluated the relationship between market risk and expected returns using the Capital Asset Pricing Model (CAPM). Tested whether historical asset performance aligned with theoretical predictions and assessed the practical strengths and limitations of risk-based valuation frameworks. Explores how financial theory translates into real-world investment decision making.
-  </p>
-  <div class="project-links">
-    <span>Read case study →</span>
-  </div>
-</a>
-
-<!-- Project 3: Yellen Inflation Model -->
-<a class="project-card" href="https://MatthewOng01.github.io/COVID-inflation/index.html">
-  <div class="project-header">
-    <div class="project-title">Yellen Inflation Model — COVID Stress Test</div>
-    <div class="project-arrow">→</div>
-  </div>
-  <div class="project-tags">
-    <span class="project-tag">Macroeconomics</span>
-    <span class="project-tag">Supply Chain</span>
-    <span class="project-tag">Inflation</span>
-    <span class="project-tag">COVID-19</span>
-  </div>
-  <p class="project-desc">
-Investigated the drivers and consequences of inflation using macroeconomic data and empirical analysis. Examined how shifts in monetary conditions, supply constraints, and consumer demand influenced price growth over time, while evaluating the broader implications for households, businesses, and policymakers.
-  </p>
-  <div class="project-links">
-    <span>Read case study →</span>
-    <a class="repo-link" href="https://github.com/MatthewOng01/Yellen-Inflation-Model-COVID-Test" target="_blank">View repository ↗</a>
-  </div>
-</a>
-
-
-        <!-- Macroprudential Policies -->
-<a class="project-card" href="https://MatthewOng01.github.io/macroprudential-policies/index.html">
-  <div class="project-header">
-    <div class="project-title">The Use of Macroprudential Policies to Combat Macro Fluctuations</div>
-    <div class="project-arrow">→</div>
-  </div>
-  <div class="project-tags">
-    <span class="project-tag">Macroeconomics</span>
-    <span class="project-tag">Financial Economics</span>
-    <span class="project-tag">Central Banking</span>
-    <span class="project-tag">Economic Theory</span>
-  </div>
-  <p class="project-desc">
-Analyzed the effectiveness of macroprudential policy tools designed to reduce systemic financial risk. Evaluated how regulatory interventions influence credit expansion, financial stability, and market behavior, with a focus on balancing economic growth against the prevention of future financial crises. Presented at the 2023 Southwestern Social Sciences Association
-    Conference in Fort Worth, TX.
-  </p>
-  <div class="project-links">
-    <span>Read case study →</span>
-  </div>
-</a>
+      </article>
+      <article class="project-card" data-project="kc-food-access" data-tags="market-research spatial-analysis">
+        <div class="project-header">
+          <h3 class="project-title"><a href="kc-food-access/index.html">Food Access &amp; Neighborhood Conditions in Jackson County, MO</a></h3>
+          <span class="project-date"><time datetime="2026-06">June 2026</time></span>
+        </div>
+        <div class="project-tags"><span class="project-tag">Spatial Economics</span> <span class="project-tag">Applied Economics</span> <span class="project-tag">RStudio</span> <span class="project-tag">QGIS</span></div>
+        <p class="project-desc">Mapped food access, income, and housing conditions across Jackson County census tracts using RStudio and QGIS. Overlays for SNAP stores, KCATA transit, and buffer rings reveal how low-access areas align with historically disinvested corridors east of Troost.</p>
+        <div class="project-links">
+          <a href="kc-food-access/index.html">Read case study →</a>
+          <a class="repo-link" href="kc-food-access/map/index.html" target="_blank" rel="noopener noreferrer">View Interactive Map ↗</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="msa-unemployment" data-tags="market-research labor-economics">
+        <div class="project-header">
+          <h3 class="project-title"><a href="msa-unemployment/index.html">GDP Growth and Racial Unemployment Gaps Across U.S. Metro Areas</a></h3>
+          <span class="project-date"><time datetime="2026-03">April 2026</time></span>
+        </div>
+        <div class="project-tags"><span class="project-tag">Labor Economics</span> <span class="project-tag">Applied Economics</span> <span class="project-tag">SAS</span></div>
+        <p class="project-desc">Analyzed economic growth and labor market equity across U.S. metropolitan areas from 2010–2023. Developed a performance metric that rewarded stable GDP growth while penalizing volatility, then compared racial unemployment gaps between high- and low-performing metros. Found that stronger economic performance did not consistently translate into more equitable employment outcomes, highlighting the limits of growth-focused development strategies.</p>
+        <div class="project-links">
+          <a href="msa-unemployment/index.html">Read case study →</a>
+          <a class="repo-link" href="https://github.com/MatthewOng01/msa_unemployment" target="_blank" rel="noopener noreferrer">View repository ↗</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="apple-capm" data-tags="economic-theory financial-economics">
+        <div class="project-header">
+          <h3 class="project-title"><a href="apple-capm/index.html">CAPM: Estimating Apple&#x27;s Market Sensitivity Against the S&amp;P 500</a></h3>
+          <span class="project-date"><time datetime="2025-11">November 2025</time></span>
+        </div>
+        <div class="project-tags"><span class="project-tag">Financial Economics</span> <span class="project-tag">CAPM</span> <span class="project-tag">APPLE</span> <span class="project-tag">R</span></div>
+        <p class="project-desc">Evaluated the relationship between market risk and expected returns using the Capital Asset Pricing Model (CAPM). Tested whether historical asset performance aligned with theoretical predictions and assessed the practical strengths and limitations of risk-based valuation frameworks. Explores how financial theory translates into real-world investment decision making.</p>
+        <div class="project-links">
+          <a href="apple-capm/index.html">Read case study →</a>
+          
+        </div>
+      </article>
+      <article class="project-card" data-project="covid-inflation" data-tags="economic-theory macroeconomics">
+        <div class="project-header">
+          <h3 class="project-title"><a href="COVID-inflation/index.html">Yellen Inflation Model — COVID Stress Test</a></h3>
+          <span class="project-date"><time datetime="2024-05">May 2024</time></span>
+        </div>
+        <div class="project-tags"><span class="project-tag">Macroeconomics</span> <span class="project-tag">Supply Chain</span> <span class="project-tag">Inflation</span> <span class="project-tag">COVID-19</span></div>
+        <p class="project-desc">Investigated the drivers and consequences of inflation using macroeconomic data and empirical analysis. Examined how shifts in monetary conditions, supply constraints, and consumer demand influenced price growth over time, while evaluating the broader implications for households, businesses, and policymakers.</p>
+        <div class="project-links">
+          <a href="COVID-inflation/index.html">Read case study →</a>
+          <a class="repo-link" href="https://github.com/MatthewOng01/Yellen-Inflation-Model-COVID-Test" target="_blank" rel="noopener noreferrer">View repository ↗</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="macroprudential-policies" data-tags="economic-theory macroeconomics financial-economics">
+        <div class="project-header">
+          <h3 class="project-title"><a href="macroprudential-policies/index.html">The Use of Macroprudential Policies to Combat Macro Fluctuations</a></h3>
+          <span class="project-date"><time datetime="2024-04">2023</time></span>
+        </div>
+        <div class="project-tags"><span class="project-tag">Macroeconomics</span> <span class="project-tag">Financial Economics</span> <span class="project-tag">Central Banking</span> <span class="project-tag">Economic Theory</span></div>
+        <p class="project-desc">Analyzed the effectiveness of macroprudential policy tools designed to reduce systemic financial risk. Evaluated how regulatory interventions influence credit expansion, financial stability, and market behavior, with a focus on balancing economic growth against the prevention of future financial crises. Presented at the 2023 Southwestern Social Sciences Association Conference in Fort Worth, TX.</p>
+        <div class="project-links">
+          <a href="macroprudential-policies/index.html">Read case study →</a>
+          
+        </div>
+      </article>
     </div>
   </section>
 

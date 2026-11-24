@@ -99,7 +99,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 30px;
+            height: var(--footer-height);
             background: #1a1a2e;
             color: #aaa;
             font-size: 11px;
@@ -125,7 +125,7 @@
             top: 48px;
             left: 0;
             right: 0;
-            bottom: 30px;
+            bottom: var(--footer-height);
             z-index: 1;
             transition: left 0.3s ease;
         }
@@ -139,7 +139,7 @@
             top: 48px;
             left: 0;
             width: 340px;
-            bottom: 30px;
+            bottom: var(--footer-height);
             background: #fff;
             border-right: 1px solid #e0e0e0;
             overflow-y: auto;
@@ -149,7 +149,7 @@
         }
 
         @media (min-width: 768px) {
-            #sidebar { top: 56px; bottom: 30px; }
+            #sidebar { top: 56px; bottom: var(--footer-height); }
         }
 
         #sidebar.sidebar-hidden {
@@ -213,7 +213,7 @@
                 right: 0;
                 width: 100%;
                 height: 60%;
-                bottom: 30px;
+                bottom: var(--footer-height);
                 border-right: none;
                 border-top: 1px solid #ddd;
                 border-radius: 16px 16px 0 0;
@@ -229,7 +229,7 @@
             /* Map always fills full screen on mobile */
             #map {
                 left: 0 !important;
-                bottom: 30px;
+                bottom: var(--footer-height);
             }
 
             /* Drag handle at top of bottom sheet */
@@ -249,7 +249,7 @@
                 align-items: center;
                 gap: 7px;
                 position: fixed;
-                bottom: 46px;
+                bottom: calc(var(--footer-height) + 16px);
                 left: 50%;
                 transform: translateX(-50%);
                 z-index: 1002;
@@ -273,7 +273,7 @@
 
             /* Push mobile toggle up when sheet is open */
             #mobile-toggle.sheet-open {
-                bottom: calc(60% + 46px);
+                bottom: calc(60% + var(--footer-height) + 16px);
             }
 
             #mobile-toggle svg {
@@ -472,7 +472,7 @@
             display: none;
             position: fixed;
             top: 48px;
-            left: 0; right: 0; bottom: 30px;
+            left: 0; right: 0; bottom: var(--footer-height);
             background: rgba(0,0,0,0.25);
             z-index: 999;
         }
@@ -481,6 +481,7 @@
             #sheet-overlay.active { display: block; }
         }
     </style>
+    <link rel="stylesheet" href="../../map-footer.css">
 </head>
 <body>
 
@@ -1095,9 +1096,17 @@ window.addEventListener('resize', function() {
 
 
     
-<div id="footer">
-    Matthew Ong &middot; <a href="https://MatthewOng01.github.io/kc-food-access/" target="_blank">  MatthewOng01.github.io/kc-food-access/  </a> &middot; June 2026
-</div>
+<footer id="footer">
+  <div class="container footer-content">
+    <span>Matthew Ong &middot; Real Estate &amp; Economic Analysis</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/matthewong01" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <span>&middot;</span>
+      <a href="https://github.com/matthewong01" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <div><a href="../index.html">Project page</a> &middot; June 2026</div>
+  </div>
+</footer>
 </div>
 </body>
 </html>

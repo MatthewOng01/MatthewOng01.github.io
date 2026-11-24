@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matthew Ong · Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css">
+  <script src="project-filter.js" defer></script>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <p class="eyebrow">Portfolio</p>
+    <h1>Matthew Ong</h1>
+   <p class="bio">
+Economics graduate student at Texas A&M University with a focus on real estate development, housing markets, and spatial analytics. I use econometrics, GIS, and financial analysis to study how location, market fundamentals, and investment decisions shape real estate outcomes.
+</p>
+<p class="bio">
+My work combines statistical modeling, data visualization, and spatial analysis to turn complex datasets into actionable insights. Recent projects have examined housing price appreciation, food access, labor market disparities, and regional economic growth using R, SAS, Python, SQL, and GIS.
+</p>
+<p class="bio">
+I'm particularly interested in multifamily, mixed-use, and land development projects where market forces, public policy, and urban growth intersect.
+    </p>
+    <div class="skills">
+      <span class="skill-tag">Excel</span>
+      <span class="skill-tag">R</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">SAS</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">Tableau</span>
+      <span class="skill-tag">GIS</span>
+    </div>
+    <div class="contact-links">
+  <a href="https://github.com/MatthewOng01" target="_blank">GitHub</a>
+  <a href="https://www.linkedin.com/in/matthewong01" target="_blank">LinkedIn</a>
+  <a href="mailto:mong01@tamu.edu">Email</a>
+</div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section>
+    <h2>Projects</h2>
+    <div class="project-filters" role="group" aria-label="Filter projects by tag" hidden>
+$filter_buttons
+      <button class="clear-filter" type="button">Clear</button>
+    </div>
+    <p class="project-count" role="status"></p>
+    <div class="projects">
+$cards
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <span>Matthew Ong · Real Estate & Economic Analysis</span>
+
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/matthewong01" target="_blank" rel="noopener noreferrer">
+        LinkedIn
+      </a>
+      <span>·</span>
+      <a href="https://github.com/matthewong01" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+:root { --footer-height: 5.25rem; }
+
+#footer .footer-content {
+  width: 100%;
+  padding: 0 0.5rem;
+  text-align: center;
+  line-height: 1.4;
+}
+#footer .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}

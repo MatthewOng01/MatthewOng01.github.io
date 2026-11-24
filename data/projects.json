@@ -1,0 +1,167 @@
+{
+  "tags": {
+    "market-research": "Market Research",
+    "economic-theory": "Economic Theory",
+    "real-estate": "Real Estate",
+    "spatial-analysis": "Spatial Analysis",
+    "labor-economics": "Labor Economics",
+    "financial-economics": "Financial Economics",
+    "macroeconomics": "Macroeconomics"
+  },
+  "projects": [
+    {
+      "id": "kc-housing-appreciation",
+      "title": "Kansas City House Price Appreciation",
+      "url": "kc-housing-appreciation/index.html",
+      "publishedMonth": "2026-08",
+      "listed": true,
+      "tags": [
+        "market-research",
+        "real-estate",
+        "spatial-analysis"
+      ],
+      "badges": [
+        "Spatial Econometrics",
+        "Real Estate Trends",
+        "Housing Markets",
+        "Data Visualization"
+      ],
+      "description": "Analyzed housing market convergence across 198 Kansas City ZIP codes using Zillow Home Value Index (ZHVI) data, GIS, and spatial econometric models. Found that lower-priced neighborhoods consistently appreciated faster than higher-priced neighborhoods, and that this relationship remained significant after accounting for geographic clustering. The project combines interactive mapping, data visualization, and econometric analysis to examine long-run neighborhood change.",
+      "links": [
+        {
+          "label": "View Dashboard ↗",
+          "url": "kc-housing-appreciation/dashboard.html"
+        },
+        {
+          "label": "View Interactive map ↗",
+          "url": "kc-housing-appreciation/map/index.html"
+        }
+      ]
+    },
+    {
+      "id": "kc-food-access",
+      "title": "Food Access & Neighborhood Conditions in Jackson County, MO",
+      "url": "kc-food-access/index.html",
+      "publishedMonth": "2026-06",
+      "listed": true,
+      "tags": [
+        "market-research",
+        "spatial-analysis"
+      ],
+      "badges": [
+        "Spatial Economics",
+        "Applied Economics",
+        "RStudio",
+        "QGIS"
+      ],
+      "description": "Mapped food access, income, and housing conditions across Jackson County census tracts using RStudio and QGIS. Overlays for SNAP stores, KCATA transit, and buffer rings reveal how low-access areas align with historically disinvested corridors east of Troost.",
+      "links": [
+        {
+          "label": "View Interactive Map ↗",
+          "url": "kc-food-access/map/index.html"
+        }
+      ]
+    },
+    {
+      "id": "msa-unemployment",
+      "title": "GDP Growth and Racial Unemployment Gaps Across U.S. Metro Areas",
+      "url": "msa-unemployment/index.html",
+      "publishedMonth": "2026-03",
+      "listed": true,
+      "tags": [
+        "market-research",
+        "labor-economics"
+      ],
+      "badges": [
+        "Labor Economics",
+        "Applied Economics",
+        "SAS"
+      ],
+      "description": "Analyzed economic growth and labor market equity across U.S. metropolitan areas from 2010–2023. Developed a performance metric that rewarded stable GDP growth while penalizing volatility, then compared racial unemployment gaps between high- and low-performing metros. Found that stronger economic performance did not consistently translate into more equitable employment outcomes, highlighting the limits of growth-focused development strategies.",
+      "links": [
+        {
+          "label": "View repository ↗",
+          "url": "https://github.com/MatthewOng01/msa_unemployment"
+        }
+      ]
+    },
+    {
+      "id": "apple-capm",
+      "title": "CAPM: Estimating Apple's Market Sensitivity Against the S&P 500",
+      "url": "apple-capm/index.html",
+      "publishedMonth": "2025-11",
+      "listed": true,
+      "tags": [
+        "economic-theory",
+        "financial-economics"
+      ],
+      "badges": [
+        "Financial Economics",
+        "CAPM",
+        "APPLE",
+        "R"
+      ],
+      "description": "Evaluated the relationship between market risk and expected returns using the Capital Asset Pricing Model (CAPM). Tested whether historical asset performance aligned with theoretical predictions and assessed the practical strengths and limitations of risk-based valuation frameworks. Explores how financial theory translates into real-world investment decision making.",
+      "links": []
+    },
+    {
+      "id": "covid-inflation",
+      "title": "Yellen Inflation Model — COVID Stress Test",
+      "url": "COVID-inflation/index.html",
+      "publishedMonth": "2024-05",
+      "listed": true,
+      "tags": [
+        "economic-theory",
+        "macroeconomics"
+      ],
+      "badges": [
+        "Macroeconomics",
+        "Supply Chain",
+        "Inflation",
+        "COVID-19"
+      ],
+      "description": "Investigated the drivers and consequences of inflation using macroeconomic data and empirical analysis. Examined how shifts in monetary conditions, supply constraints, and consumer demand influenced price growth over time, while evaluating the broader implications for households, businesses, and policymakers.",
+      "links": [
+        {
+          "label": "View repository ↗",
+          "url": "https://github.com/MatthewOng01/Yellen-Inflation-Model-COVID-Test"
+        }
+      ]
+    },
+    {
+      "id": "macroprudential-policies",
+      "title": "The Use of Macroprudential Policies to Combat Macro Fluctuations",
+      "url": "macroprudential-policies/index.html",
+      "publishedMonth": "2024-04",
+      "listed": true,
+      "tags": [
+        "economic-theory",
+        "macroeconomics",
+        "financial-economics"
+      ],
+      "badges": [
+        "Macroeconomics",
+        "Financial Economics",
+        "Central Banking",
+        "Economic Theory"
+      ],
+      "description": "Analyzed the effectiveness of macroprudential policy tools designed to reduce systemic financial risk. Evaluated how regulatory interventions influence credit expansion, financial stability, and market behavior, with a focus on balancing economic growth against the prevention of future financial crises. Presented at the 2023 Southwestern Social Sciences Association Conference in Fort Worth, TX.",
+      "links": []
+    },
+    {
+      "id": "stl-re",
+      "title": "The Effect of the Rams' Departure on Real Estate Prices",
+      "url": "stl-re/index.html",
+      "publishedMonth": "2026-12",
+      "listed": false,
+      "tags": [
+        "market-research",
+        "real-estate",
+        "spatial-analysis"
+      ],
+      "badges": [],
+      "description": "",
+      "links": []
+    }
+  ]
+}
